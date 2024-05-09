@@ -74,7 +74,7 @@ function onLoadCalculator() {
         
         const hours = Math.round((parseFloat(formData["input-packages"]) / coefficient + Number.EPSILON) * 100) / 100;
         const workers = Math.ceil(hours / parseFloat(formData["input-hours"]));
-        const hoursPerWorker = hours / workers;
+        const hoursPerWorker = Math.round((hours / workers + Number.EPSILON) * 100) / 100;
         
         FORM.elements["output-hours"].value = hours;
         FORM.elements["output-workers"].value = workers;
