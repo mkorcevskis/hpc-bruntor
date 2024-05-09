@@ -25,6 +25,31 @@ class Package {
     }
 }
 
+const monthCoefficients = [
+    3.372158218,
+    3.785835459,
+    3.772528162,
+    3.52859127,
+    3.781799795,
+    4.479751984,
+    3.916977087,
+    3.442603687,
+    3.473611111,
+    3.802042371,
+    3.37003373,
+    3.248527266,
+]
+
+const weekdayCoefficients = [
+    3.940466651,
+    3.805613553,
+    3.496654075,
+    3.594506639,
+    3.790971841,
+    3.587499237,
+    3.429844265,
+]
+
 /* the script to execute when "Index" page is loaded */
 function onLoadIndex() {
 
@@ -42,17 +67,18 @@ function onLoadCalculator() {
             }
         }
         console.log(formData);
-        if ((formData["input-date"] === "2024-05-13") && (formData["input-hours"] === "3") && (formData["input-packages"] === "20")) {
-            console.log(true);
-            FORM.elements["output-hours"].value = "5.23";
-            FORM.elements["output-workers"].value = "2";
-            FORM.elements["output-hours-per-worker"].value = "2.645";
-        } else {
-            console.log(false);
-            FORM.elements["output-hours"].value = "";
-            FORM.elements["output-workers"].value = "";
-            FORM.elements["output-hours-per-worker"].value = "";
-        }
+        const date = new Date(formData["input-date"]);
+        const month = date.getMonth();
+        const weekday = date.getDay();
+        const coefficient = (monthCoefficients[month] + weekdayCoefficients[weekday])/2;
+        
+        const hours = Math.round((parseFloat(formData["input-packages"]) / coefficient + Number.EPSILON) * 100) / 100;
+        const workers = Math.ceil(hours / parseFloat(formData["input-hours"]));
+        const hoursPerWorker = hours / workers;
+        
+        FORM.elements["output-hours"].value = hours;
+        FORM.elements["output-workers"].value = workers;
+        FORM.elements["output-hours-per-worker"].value = hoursPerWorker;
     });
 }
 
