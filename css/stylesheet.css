@@ -3,7 +3,19 @@
     --dark-color: #242426;
     --light-color: #D9D9D9;
     --accent-color: #E11313;
+    --rtu-color: #015551;
     --logo-height: 60px
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: var(--light-color);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
 }
 * {
     font-family: "Lato", sans-serif;
@@ -67,10 +79,13 @@ header > a > img, footer > a > img {
 }
 .subtitle {
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 }
-.brand-name {
+.bruntor-brand-name {
     color: var(--accent-color);
+}
+.rtu-brand-name {
+    color: var(--rtu-color);
 }
 footer {
     justify-content: center;
@@ -79,7 +94,17 @@ footer {
 /* END COMMON */
 
 /* BEGIN INDEX */
-
+#index > h3 {
+    text-align: justify;
+    line-height: 1.4;
+    margin: 8px;
+}
+#index > h3:first-of-type {
+    /*margin-top: 48px;*/
+}
+#index > h3:last-of-type {
+    margin-bottom: 48px;
+}
 /* END INDEX */
 
 /* BEGIN CALCULATOR */
@@ -151,6 +176,26 @@ footer {
 #about-us {
     padding-bottom: 0;
 }
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+}
+.flex-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+.flex-image {
+    max-width: 100%;
+}
+.flex-name, .flex-position {
+    text-align: center;
+}
 #graphics-vehicle-container {
     position: relative;
     width: 100vw;
@@ -169,6 +214,15 @@ footer {
     }
     to {
         right: 100%;
+    }
+}
+@media (max-width: 1023px) {
+    .flex-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .flex-image {
+        max-height: 300px;
     }
 }
 /* END ABOUT US */
