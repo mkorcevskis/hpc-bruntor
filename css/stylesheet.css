@@ -101,6 +101,9 @@ footer {
     justify-content: center;
     gap: 36px;
 }
+#footer-logo-eu-nap {
+    max-height: 100%;
+}
 /* COMMON END */
 
 /* INDEX BEGIN */
@@ -108,9 +111,6 @@ footer {
     text-align: justify;
     line-height: 1.4;
     margin: 8px;
-}
-#index > h3:first-of-type {
-    /*margin-top: 48px;*/
 }
 #index > h3:last-of-type {
     margin-bottom: 48px;
@@ -129,6 +129,8 @@ footer {
 .grid-element {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
     gap: 12px;
 }
 .grid-container label {
@@ -227,6 +229,7 @@ footer {
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(7, 1fr);
         gap: 32px;
+        padding: 0 0 16px 0;
     }
     .grid-container > div:nth-child(1) {
         order: -5;
@@ -258,13 +261,12 @@ footer {
     .grid-separator {
         display: none;
     }
-
     .flex-container {
         flex-direction: column;
         align-items: center;
     }
     .flex-image {
-        max-height: 300px;
+        max-height: 420px;
     }
 }
 @media (max-width: 768px) {
@@ -284,6 +286,11 @@ footer {
     }
 }
 @media (max-width: 520px) {
-
+    #menu {
+        gap: 0;
+    }
+    .menu-item-link {
+        font-size: 18px;
+    }
 }
 /* MEDIA QUERIES END */
