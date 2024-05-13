@@ -58,8 +58,8 @@ header > a > img, footer > a > img {
 header > a > img {
     min-width: 200px;
 }
-footer > a > img {
-
+#footer-logo-eu-nap {
+    height: unset!important;
 }
 #menu {
     display: inherit;
@@ -100,9 +100,6 @@ footer > a > img {
 footer {
     justify-content: center;
     gap: 36px;
-}
-#footer-logo-eu-nap {
-    height: unset!important;
 }
 /* COMMON END */
 
@@ -263,9 +260,6 @@ footer {
     }
     .grid-separator {
         display: none;
-    }
-    #input-date {
-        width: 100%;
     }
     .flex-container {
         flex-direction: column;
