@@ -1,4 +1,4 @@
-/* BEGIN COMMON */
+/* COMMON BEGIN */
 :root {
     --dark-color: #242426;
     --light-color: #D9D9D9;
@@ -32,12 +32,14 @@ body > * {
 header {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 10000;
 }
 header, footer {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    gap: 36px;
     background-color: var(--dark-color);
     color: var(--light-color);
     padding-bottom: 22px;
@@ -49,12 +51,17 @@ header > a, footer > a {
     height: var(--logo-height);
 }
 header > a > img, footer > a > img {
-    max-height: 100%;
-    width: auto;
+    width: 100%;
+    max-height: var(--logo-height);
+    height: auto;
+}
+header > a > img {
+    min-width: 200px;
 }
 #menu {
     display: inherit;
-    gap: 36px;
+    flex-direction: row;
+    gap: inherit;
 }
 .menu-item {
     display: inherit;
@@ -91,9 +98,9 @@ footer {
     justify-content: center;
     gap: 36px;
 }
-/* END COMMON */
+/* COMMON END */
 
-/* BEGIN INDEX */
+/* INDEX BEGIN */
 #index > h3 {
     text-align: justify;
     line-height: 1.4;
@@ -105,9 +112,9 @@ footer {
 #index > h3:last-of-type {
     margin-bottom: 48px;
 }
-/* END INDEX */
+/* INDEX END */
 
-/* BEGIN CALCULATOR */
+/* CALCULATOR BEGIN */
 #calc-form {
     display: flex;
     flex-direction: column;
@@ -163,16 +170,16 @@ footer {
     color: var(--accent-color)!important;
     background-color: white!important;
 }
-/* END CALCULATOR */
+/* CALCULATOR END */
 
-/* BEGIN MAP */
+/* MAP BEGIN */
 #map {
     min-height: calc(100vh - 2 * (var(--logo-height) + 22px + 22px));
     padding: 0;
 }
-/* END MAP */
+/* MAP END */
 
-/* BEGIN ABOUT US */
+/* ABOUT US BEGIN */
 #about-us {
     padding-bottom: 0;
 }
@@ -216,7 +223,7 @@ footer {
         right: 100%;
     }
 }
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
     .flex-container {
         flex-direction: column;
         align-items: center;
@@ -225,4 +232,23 @@ footer {
         max-height: 300px;
     }
 }
-/* END ABOUT US */
+@media (max-width: 768px) {
+    body > * {
+        padding: 22px 32px;
+    }
+    header {
+        flex-direction: column;
+        gap: 18px;
+    }
+    #menu {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .menu-item-link {
+        padding: 0;
+    }
+}
+@media (max-width: 520px) {
+
+}
+/* ABOUT US END */
