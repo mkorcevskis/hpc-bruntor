@@ -59,7 +59,7 @@ header > a > img {
     min-width: 200px;
 }
 #footer-logo-eu-nap {
-    height: unset!important;
+    aspect-ratio: auto!important;
 }
 #menu {
     display: inherit;
