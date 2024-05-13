@@ -238,6 +238,7 @@ footer {
     }
     .grid-container > div {
         align-items: center;
+        text-align: center;
     }
     .grid-container > div:nth-child(1) {
         order: -5;
