@@ -58,6 +58,9 @@ header > a > img, footer > a > img {
 header > a > img {
     min-width: 200px;
 }
+footer > a > img {
+
+}
 #menu {
     display: inherit;
     flex-direction: row;
@@ -69,7 +72,7 @@ header > a > img {
     justify-content: center;
 }
 .menu-item-link {
-    color: var(--light-color);
+    color: white;
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
@@ -82,7 +85,7 @@ header > a > img {
 .title {
     text-align: center;
     font-size: 44px;
-    margin-bottom: 22px;
+    margin-bottom: 18px;
 }
 .subtitle {
     text-align: center;
@@ -115,46 +118,39 @@ footer {
 /* INDEX END */
 
 /* CALCULATOR BEGIN */
-#calc-form {
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 64px;
+    padding: 32px 0;
+    width: 100%;
+}
+.grid-element {
     display: flex;
     flex-direction: column;
-    gap: 64px;
-    padding: 32px;
-}
-.calc-form-row {
-    display: inherit;
-    align-items: flex-end;
-    justify-content: space-between;
-    flex: 1;
-    gap: 32px;
-}
-.calc-form-row-elem {
-    display: inherit;
-    flex-direction: column;
-    flex-basis: 33%;
     gap: 12px;
 }
-#calc-form label {
+.grid-container label {
     font-size: 18px;
     font-weight: bold;
 }
-#calc-form input {
+.grid-container input {
     font-size: 20px;
     font-weight: bold;
     background-color: white;
     border: 2px var(--dark-color) solid;
     padding: 16px 12px;
 }
-#calc-form input:focus {
+.grid-container input:focus {
     outline: 3px var(--accent-color) solid;
 }
-#calc-form input[readonly] {
+.grid-container input[readonly] {
     background-color: transparent;
 }
 #calc-button {
     height: unset!important;
-    flex-grow: 0;
-    font-size: 26px!important;
+    font-size: 32px!important;
     text-transform: uppercase;
     color: white!important;
     background-color: var(--accent-color)!important;
@@ -223,7 +219,46 @@ footer {
         right: 100%;
     }
 }
+/* ABOUT US END */
+
+/* MEDIA QUERIES BEGIN */
 @media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        gap: 32px;
+    }
+    .grid-container > div:nth-child(1) {
+        order: -5;
+    }
+    .grid-container > div:nth-child(2) {
+        /*order: 5;*/
+    }
+    .grid-container > div:nth-child(3) {
+        order: 6;
+    }
+    .grid-container > div:nth-child(4) {
+        order: -3;
+    }
+    .grid-container > div:nth-child(5) {
+        /*order: 3; button */
+    }
+    .grid-container > div:nth-child(6) {
+        order: 7;
+    }
+    .grid-container > div:nth-child(7) {
+        order: -2;
+    }
+    .grid-container > div:nth-child(8) {
+        /*order: 7;*/
+    }
+    .grid-container > div:nth-child(9) {
+        order: 7;
+    }
+    .grid-separator {
+        display: none;
+    }
+
     .flex-container {
         flex-direction: column;
         align-items: center;
@@ -245,10 +280,10 @@ footer {
         justify-content: space-between;
     }
     .menu-item-link {
-        padding: 0;
+        padding: 8px;
     }
 }
 @media (max-width: 520px) {
 
 }
-/* ABOUT US END */
+/* MEDIA QUERIES END */
