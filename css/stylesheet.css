@@ -102,7 +102,7 @@ footer {
     gap: 36px;
 }
 #footer-logo-eu-nap {
-    max-height: 100%;
+    height: unset!important;
 }
 /* COMMON END */
 
@@ -258,8 +258,14 @@ footer {
     .grid-container > div:nth-child(9) {
         order: 7;
     }
+    .grid-element {
+        gap: 6px;
+    }
     .grid-separator {
         display: none;
+    }
+    #input-date {
+        width: 100%;
     }
     .flex-container {
         flex-direction: column;
