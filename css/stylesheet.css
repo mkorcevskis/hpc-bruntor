@@ -59,7 +59,7 @@ header > a > img {
     min-width: 200px;
 }
 #footer-logo-eu-nap {
-    aspect-ratio: 2.15!important;
+    width: unset;
 }
 #menu {
     display: inherit;
@@ -143,6 +143,10 @@ footer {
 }
 .grid-container input:focus {
     outline: 3px var(--accent-color) solid;
+}
+.grid-container input::selection {
+    background-color: var(--accent-color);
+    color: white;
 }
 .grid-container input[readonly] {
     background-color: transparent;
@@ -232,9 +236,11 @@ footer {
         gap: 32px;
         padding: 0 0 16px 0;
     }
+    .grid-container > div {
+        align-items: center;
+    }
     .grid-container > div:nth-child(1) {
         order: -5;
-        align-items: center;
     }
     .grid-container > div:nth-child(2) {
         /*order: 5;*/
